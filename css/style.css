@@ -1478,6 +1478,7 @@ h1, h2, h3, h4, h5,
   }
 }
 
+
 /* Style the counter cards */
 .card {
 
@@ -1491,4 +1492,10 @@ h1, h2, h3, h4, h5,
 #statcounter{
   margin-top: 1rem;
 margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .p-5 {
+    padding: 0rem!important;
+  }
 }
