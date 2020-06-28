@@ -1,8 +1,8 @@
 <?
-$name = 'Name : ' . $_POST['name'];
+$name = 'Name : ' . $_POST['fname']; . "\r\n" . $_POST['lname'];
 $email = $_POST['email'];
 $subject = 'Subject : ' . $_POST['subject'];
-$body = 'Body : ' . $_POST['body'];
+$body = 'Body : ' . $_POST['message'];
 
 $to      = 'universal.amanaggarwal@gmail.com';
 $message = $name . "\r\n" . $subject . "\r\n"  . $body;
