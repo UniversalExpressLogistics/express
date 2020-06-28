@@ -1499,3 +1499,12 @@ margin-bottom: 0.5rem;
     padding: 0rem!important;
   }
 }
+
+@media screen and (max-width: 600px) {
+  #email_fixer {
+    font-size: 0.85rem ;
+  }
+  #button_pad{
+    
+  }
+}
