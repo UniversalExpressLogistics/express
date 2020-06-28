@@ -1500,11 +1500,23 @@ margin-bottom: 0.5rem;
   }
 }
 
-@media screen and (max-width: 600px) {
+#hide_web{
+  display: none;
+}
+
+
+#hide_mob{
+  display: block;
+}
+
+@media screen and (max-width: 900px) {
   #email_fixer {
     font-size: 0.85rem ;
   }
-  #button_pad{
-    
+  #hide_web{
+    display: block;
+  }
+  #hide_mob{
+    display: none;
   }
 }
