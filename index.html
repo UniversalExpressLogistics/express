@@ -560,6 +560,18 @@
   </div>
 </div>
 
+<div class="" style="background-color:black;">
+   <section class="customer-logos slider">
+      <div class="slide"> <img src="clients_logo/airtel.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/asus.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/bosch.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/delex.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/1.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/1.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/1.png" alt=""></div>
+      <div class="slide"> <img src="clients_logo/1.png" alt=""></div>
+   </section>
+</div>
 
     <!-- <div class="site-section">
       <div class="container">
@@ -684,5 +696,31 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
   </body>
 </html>
