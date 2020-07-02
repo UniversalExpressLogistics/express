@@ -1,0 +1,18 @@
+.navbar {
+  margin-top: 20px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 16px;
+}
+
+.navbar-default {
+  background: transparent;
+  border-color: transparent;
+}
+
+.carousel-inner .carousel-caption h1 {
+  color: #000000;
+}
