@@ -608,6 +608,24 @@ h1, h2, h3, h4, h5,
     .site-blocks-cover .display-1 {
       font-size: 3rem; } }
 
+  @media screen and (max-width: 700px) {
+        .site-blocks-cover, .site-blocks-cover .row {
+          height: calc(100vh)
+          min-height: 300px !important;
+          background-position: 50% !important;
+        }
+        .site-blocks-cover.inner-page-cover, .site-blocks-cover.inner-page-cover .row {
+          min-height: 300px !important;
+          background-position: 50% !important;
+        }
+        #center_text_mobile{
+          margin-top: 27% !important;
+        }
+    }
+
+
+
+
 .site-block-subscribe .btn {
   padding-left: 20px;
   padding-right: 20px; }
