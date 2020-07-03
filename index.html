@@ -34,12 +34,32 @@
         margin-top: 1.5rem!important
       }
     }
+    #WAButton{
+      z-index: 9999;
+      position: absolute;
+      position: fixed;
+    }
+
+    @media (max-width: 768px) {
+      #WAButton{
+        z-index: 9999;
+        position: absolute;
+        position: fixed;
+
+      }
+    }
+
+
   </style>
   <body>
   <div class="site-wrap">
+    <!-- <div class="alwaysshowme">
     <a id = "whatsapp" href="https://api.whatsapp.com/send?phone=917055708808&text=Hi" class="float" target="_blank">
     <i class="icon-whatsapp my-float"></i>
+    <span class="showmeonhover">I can</span>
     </a>
+  </div> -->
+  <div id="WAButton"></div>
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -775,8 +795,32 @@
         }]
     });
 });
+
+$(function() {
+  $('#WAButton').floatingWhatsApp({
+    phone: '917055708808', //WhatsApp Business phone number International format-
+    //Get it with Toky at https://toky.co/en/features/whatsapp.
+    headerTitle: 'Chat for Business Query Only!', //Popup Title
+    popupMessage: 'Hi, You are connected to Universal Logistics\'s Business Assistance cell', //Popup Message
+    showPopup: true, //Enables popup display
+    buttonImage: '<img src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', //Button Image
+    //headerColor: 'crimson', //Custom header color
+    //backgroundColor: 'crimson', //Custom background button color
+    position: "right"
+  });
+});
   </script>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <!--Floating WhatsApp css-->
+  <link rel="stylesheet" href="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">
+  <!--Floating WhatsApp javascript-->
+  <script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
 
   </body>
 </html>
