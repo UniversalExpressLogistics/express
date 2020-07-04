@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Universal Logistics | IT Hardware</title>
+    <title>Universal Logistics | Active Pincodes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
-
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <style media="screen">
     #red_headings{
@@ -37,6 +30,33 @@
       }
     }
   </style>
+
+  <script type="text/javascript"
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+      $("#check").click(function() {
+      var name = $('#name').val();
+      if(name=="")
+      {
+      $("#disp").html("");
+      }
+      else
+      {
+      $.ajax({
+        type: "POST",
+        url: "email/pin_check.php",
+        data: "name="+ name ,
+        success: function(html){
+        $("#disp").html(html);
+        }
+        });
+      return false;
+      }
+      });
+      });
+  </script>
   <body>
 
   <div class="site-wrap">
@@ -109,87 +129,58 @@
 
 
 
+
     <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/it_hardware.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-8" id="center_text_mobile" data-aos="fade-up" data-aos-delay="400">
-            <h1 class="text-white font-weight-light text-uppercase font-weight-bold">IT Hardware</h1>
+            <h1 class="text-white font-weight-light text-uppercase font-weight-bold">Active Pincodes</h1>
           </div>
         </div>
       </div>
     </div>
 
 
-    <div class="site-section bg-light">
-        <div class="container">
-      	<div class="row">
-          <div class="col-md-7 " data-aos="fade">
+    <div class="site-section"  style="background-color:black">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8" data-aos="fade">
             <div class="text-left pb-1 border-primary mb-4">
-              <h2 class="text-primary" > <span style="color:#343a40">Supply Chain Solutions <span style="text-transform : none; font-weight:normal">for</span></span></br> IT Hardware</h2>
+              <h2 class="text-primary" > <span style="color:#333333">Download <span style="text-transform:none">our</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode Directory</span></span></h2>
             </div>
-            <p>
-               The technology industry works at a very fast pace. It’s all about getting your products into the hands of tech-hungry consumers and businesses as soon as possible.</p>
-             <p>By outsourcing the Logistics of the same to us you get the supply chain flexibility you need to keep pace with the dynamically changing technology marketplace.</p>
-             <p>UNIVERSAL LOGISTICS provides you an end-to-end solution for your technology supply chain needs. Our flexible solutions mean we can provide dedicated warehousing, short-term space for a project or space in a shared use facility. Whether managing inbound parts to your manufacturing plant, distributing goods to your customer or servicing your aftermarket parts network, UNIVERSAL LOGISTICS provides you the visibility required to improve efficiency, reduce costs and deliver consistent results.</br>
-              </br>
-
-              If your challenge is to develop a streamlined supply chain. To accomplish your goal, you need a supply chain partner that continuously provides improvement solutions that keep pace with the changing marketplace. We can help you by using our 100% self-Network, supply chain knowledge, analytical skills, and proactive approach to provide stable and efficient solutions.</br>
-               </br>
-
-               <span style="color:#CB3233">We are committed to render <b>Class 1 Services</b> to all our patronage.</span>
-
-              </p>
-
-
           </div>
+  				<div class="col-md-4" style="text-align:center">
+            <a href="meawmeaw2.html"  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important"> Pincode Directory<span style="text-transform:none">.pdf</span></a>
+  				</div>
+  			</div>
+  	</div>
+    <section>
+    <h3 class="text-primary" style="text-align:center; "> <span style="color:#333333">Check Serviceability <span style="text-transform:none">by</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode</span></span></h2>
+    </br>
+    <center>
+      <form method="post" >
+      <b style="color:white;">PINCODE SEARCH  &nbsp </b>
+      <input  id="name" maxlength="6" type="number" name="name" placeholder=" Enter PINCODE"></input>&nbsp
+      <input class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" type="submit" name="check" value="Check"/></br>
+      </form>
+    </center>
+      <center>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <h3><h3>
+          <tbody>
 
-      		<div class="col-md-5">
-      			<div class="card" style="border-left-color: #CB3233; border-left-width:1rem ">
-      				<div class="card-body" style="background-color:#343a40;">
-                <h6 class="card-text" >
-        					Mission
-        				</h6>
-      					<p class="card-header " style="background-color:#343a40 !important;color:white; padding:0;  border:none; text-align:left">
-      					     To be able to help our clients achieve their dream heights in business by offering world class logistics solutions to them & be their growth partners.
-      					</p>
-      				</div>
-      			</div>
+            <h4><?php echo @$_GET['blank']; ?> </h4>
+            <div id="disp"></div>
 
-      			<div class="card" style="border-left-color: #CB3233; border-left-width:1rem ">
-      				<div class="card-body" style="background-color:#343a40">
-                <h6 class="card-text">
-        					Vision
-        				</h6>
-      					<p class="card-header" style="background-color:#343a40 !important;color:white; padding:0; border:none; text-align:left">
-      					To be known as a ONE STOP SOLUTION for our clients, being Innovative and trustworthy company in the world of logistics.
-      					</p>
-      				</div>
-      			</div>
-          </br>
-            <div class="card">
-              <div class="feature-1 pricing h-100 text-center" style="padding:30px 20px">
-                <div class="icon">
-                  <span class="icon-rocket"></span>
-                </div>
-                <h2 class="my-4 heading">Latest Updates</h2>
-                <marquee style="text-align:" scrolldelay="100" direction="up" onmouseover="stop()"  onmouseout="start()">
-                  <ul style="padding:6%; list-style-type: ">
-                    <li id="latest_news"><a href="https://www.mypetrolprice.com/16/1/Dehradun-Diesel-Price-Chart" id="news" target="_blank">All time high diesel prices in Uttarakhand</a></li>
-                    <li id="latest_news"><a href="https://www.mypetrolprice.com/39/1/Ghaziabad-Diesel-Price-Chart" id="news" target="_blank">All time high diesel prices in U.P.</a></li>
-                    <li id="latest_news"><a href="https://economictimes.indiatimes.com/news/defence/india-china-live-updates-india-warns-china-of-consequences/liveblog/76635266.cms" id="news" target="_blank">India's stand against China</a></li>
-                    <li id="latest_news"><a href="https://www.mohfw.gov.in" id="news" target="_blank">COVID-19 Updates</a></li>
-                    <li id="latest_news"><a href="https://www.mohfw.gov.in" id="news" target="_blank">We are starting our operations post lockdown relaxations from government on 9th April 2020</a></li>
-                    <li id="latest_news"><a href="https://www.newindianexpress.com/business/2020/apr/09/covid-19-lockdown-centre-may-soon-allow-courier-parcel-services-to-function-2127945.html" id="news" target="_blank">COVID-19 lockdown : Center may soon allow courier services to function</a></li>
 
-                  </ul>
-                </marquee>
-              </div>
-            </div>
-      		</div>
-      	</div>
+          </tbody>
+        </table>
       </div>
-    </div>
+    </center>
+    </section>
+
 
     <footer class="site-footer" style="padding: 2em">
       <div class="container">
