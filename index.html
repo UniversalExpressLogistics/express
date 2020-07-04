@@ -51,7 +51,7 @@
 
 
   </style>
-  <body>
+  <body onload="myFunction()">
   <div class="site-wrap">
     <!-- <div class="alwaysshowme">
     <a id = "whatsapp" href="https://api.whatsapp.com/send?phone=917055708808&text=Hi" class="float" target="_blank">
@@ -561,7 +561,7 @@
   <div class="column">
     <div class="card">
       <p id="statcounter"><i class="fa icon-verified_user"></i></p>
-      <h3>164 Million+</h3>
+      <h3 id="number_of_deleveries_done"></h3>
       <p>Shipment Delivered</p>
     </div>
   </div>
@@ -569,8 +569,8 @@
   <div class="column">
     <div class="card">
       <p id="statcounter"><i class="fa icon-face"></i></p>
-      <h3>55+</h3>
-      <p>Premium Business Clients</p>
+      <h3>115+</h3>
+      <p>100% Satisfied Business Clients</p>
     </div>
   </div>
 
@@ -813,6 +813,15 @@ $(function() {
     position: "right"
   });
 });
+
+function myFunction() {
+    const now = new Date()
+    const secondsSinceEpoch = Math.round(now.getTime() / 1000) ;
+   	date_started = 1101593486;
+    number_of_deleveries = Math.round((secondsSinceEpoch - date_started)/3);
+    document.getElementById("number_of_deleveries_done").innerHTML = number_of_deleveries + " " + "+";
+    setInterval('myFunction()', 1500);
+}
   </script>
 
 
