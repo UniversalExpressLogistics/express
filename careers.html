@@ -212,7 +212,7 @@
               <h2 class="text-primary"> Apply Now</h2>
             </div>
 
-            <form action="#" class="p-5 bg-white" style="background-color:#343a40 !important">
+            <form action="email/job_vacancies.php" enctype="multipart/form-data" method="POST" class="p-5 bg-white" style="background-color:#343a40 !important">
 
 
               <div class="row form-group">
@@ -252,7 +252,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-white" for="InputFile">Upload Resume</label>
-							    <input type="file" class="form-control-file" id="exampleInputFile" required/>
+							    <input type="file" class="form-control-file" id="resume" name="resume[]" multiple required/>
                 </div>
               </div>
               <div class="row form-group" style="margin-top:4%">
