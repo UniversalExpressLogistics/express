@@ -1,7 +1,7 @@
 <?
 $name = 'Name : ' . $_POST['name'];
 $contact = 'Contact : ' . $_POST['contact'];
-$email = $_POST['email'];
+$email = 'Email : ' . $_POST['email'];
 $subject = 'Subject : ' . $_POST['subject'];
 $body = 'Body : ' . $_POST['message'];
 
