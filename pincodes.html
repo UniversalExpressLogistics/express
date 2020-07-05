@@ -22,13 +22,20 @@
     #red_headings{
       color:#CB3233;
     }
-
+    #mobile_check{
+      margin-top: 1%;
+    }
 
       @media (max-width: 768px) {
         #mobile_review{
         margin-top: 1.5rem!important
       }
+      #mobile_check{
+        margin-top: 5%;
+      }
+
     }
+
   </style>
 
   <script type="text/javascript"
@@ -147,7 +154,7 @@
         <div class="row">
           <div class="col-md-8" data-aos="fade">
             <div class="text-left pb-1 border-primary mb-4">
-              <h2 class="text-primary" > <span style="color:#333333">Download <span style="text-transform:none">our</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode Directory</span></span></h2>
+              <h2 class="text-primary" > <span style="color:#999999">Download <span style="text-transform:none">our</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode Directory</span></span></h2>
             </div>
           </div>
   				<div class="col-md-4" style="text-align:center">
@@ -156,13 +163,22 @@
   			</div>
   	</div>
     <section>
-    <h3 class="text-primary" style="text-align:center; "> <span style="color:#333333">Check Serviceability <span style="text-transform:none">by</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode</span></span></h2>
+    <h3 class="text-primary" style="text-align:center; "> <span style="color:#999999">Check Serviceability <span style="text-transform:none">by</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode</span></span></h2>
     </br>
     <center>
       <form method="post" >
-      <b style="color:white;">PINCODE SEARCH  &nbsp </b>
-      <input  id="name" maxlength="6" type="number" name="name" placeholder=" Enter PINCODE"></input>&nbsp
-      <input class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" type="submit" name="check" value="Check"/></br>
+
+        <div class="col-md-12">
+    			<div class="row">
+
+    				<div class="col-md-12">
+            </br>
+              <input  id="name" maxlength="6" type="number" name="name" placeholder=" Enter PINCODE"></input>&nbsp
+              <div id="mobile_check"><input  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" type="submit" name="check" value="Check"/></br>
+              </div>
+    				</div>
+    			</div>
+    		</div>
       </form>
     </center>
       <center>
