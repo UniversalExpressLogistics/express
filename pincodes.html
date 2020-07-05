@@ -160,50 +160,43 @@
   				<div class="col-md-4" style="text-align:center">
             <a href="meawmeaw2.html"  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important"> Pincode Directory<span style="text-transform:none">.pdf</span></a>
   				</div>
-          <section>
-          <h3 class="text-primary" style="text-align:center; "> <span style="color:#999999">Check Serviceability <span style="text-transform:none">by</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode</span></span></h2>
-          </br>
-          <center>
-            <form method="post" >
-          			<div class="row">
-
-          				<div class="col-md-12">
-                    <div class="col-md-2"></div>
-                      <div class="col-md-8">
-                        </br>
-                          <input  id="name" maxlength="6" type="number" name="name" placeholder=" Enter PINCODE"></input>
-                			</div>
-                    <div class="col-md-2"></div>
-                  </div>
-
-
-                    <div class="col-md-12">
-                      <div class="col-md-2"></div>
-                      <div class="col-md-8" id="mobile_check"><input  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" type="submit" name="check" value="Check"/></br>
-                        </div>
-                      <div class="col-md-2"></div>
-                    </div>
-      			     </div>
-            </form>
-          </center>
-            <center>
-            <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <h3><h3>
-                <tbody>
-
-                  <h4><?php echo @$_GET['blank']; ?> </h4>
-                  <div id="disp"></div>
-
-
-                </tbody>
-              </table>
-            </div>
-          </center>
-          </section>
-
   			</div>
   	</div>
+      <section>
+        <h3 class="text-primary" style="text-align:center; "> <span style="color:#999999">Check Serviceability <span style="text-transform:none">by</span> <span style="text-transform : none; font-weight:normal; color:#CB3233">Pincode</span></span></h2>
+        </br>
+        <center>
+          <form method="post" >
+        			<div class="row">
+                <div class="col-md-2"></div>
+        				<div class="col-md-8">
+                    <input  id="name" maxlength="6" type="number" name="name" placeholder=" Enter PINCODE"></input>
+        				</div>
+                <div class="col-md-2"></div>
+        			</div>
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="mobile_check"><input  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" type="submit" name="check" value="Check"/></br>
+                <div class="col-md-2"></div>
+                </div>
+              </div>
+          </form>
+        </center>
+          <center>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <h3><h3>
+              <tbody>
+
+                <h4><?php echo @$_GET['blank']; ?> </h4>
+                <div id="disp"></div>
+
+
+              </tbody>
+            </table>
+          </div>
+        </center>
+      </section>
 
 
     <footer class="site-footer" style="padding: 2em">
