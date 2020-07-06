@@ -12,8 +12,8 @@ $headers = 'From: ' . $email . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 if (mail($to, $subject, $message, $headers)) {
-    header('location: ../index.html');
+    $result='<div class="alert alert-success">Thank You! We will be in touch</div>';
 } else {
-    header('location: ../404.html');
+    $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
 }
 ?>
