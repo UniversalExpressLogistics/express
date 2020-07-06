@@ -10,6 +10,10 @@ $subject = 'Business query from website';
 $headers = 'From: ' . $email . "\r\n" .
     'Reply-To: universal.amanaggarwal@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
 
+if (mail($to, $subject, $message, $headers)) {
+    header('location: ../index.html');
+} else {
+    header('location: ../404.html');
+}
 ?>

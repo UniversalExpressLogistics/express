@@ -106,11 +106,9 @@ if($_POST){
     $sentMail = mail($recipient_email, $subject, $body, $headers);
     if($sentMail) //output success or failure messages
     {
-        print 'Thank you for your email';
-        exit;
+        header('location: ../careers.html');
     }else{
-        print 'Could not send mail! Please check your PHP mail configuration.';
-        exit;
+        header('location: ../404.html');
     }
 }
 

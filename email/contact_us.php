@@ -1,4 +1,4 @@
-<?
+<?php
 $name = 'Name : ' . $_POST['name'];
 $contact = 'Contact : ' . $_POST['contact'];
 $email = 'Email : ' . $_POST['email'];
@@ -11,5 +11,9 @@ $subject = 'Inquiry from Contact us page of Website';
 $headers = 'From: ' . $email . "\r\n" .
     'Reply-To: universal.amanaggarwal@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
+if (mail($to, $subject, $message, $headers)) {
+    header('location: ../contact.html');
+} else {
+    header('location: ../404.html');
+}
 ?>
