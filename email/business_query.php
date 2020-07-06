@@ -13,8 +13,9 @@ $headers = 'From: ' . $email . "\r\n" .
 
 if (mail($to, $subject, $message, $headers)) {
     echo"<script language='javascript'>alert('Mail Sent Successfully')</script>";
+    header('location: ../index.html');
 } else {
     echo"<script language='javascript'>alert('Mail Failed, please try again')</script>";
+    header('location: ../index.html');
 }
-header('location: ../index.html');
 ?>
