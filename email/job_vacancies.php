@@ -31,6 +31,7 @@ if($_POST){
     $email   = filter_var($_POST["email"], FILTER_SANITIZE_STRING); //capture sender email
     $contact_number   = filter_var($_POST["contact"], FILTER_SANITIZE_NUMBER_INT);
     $subject        = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
+    $subject        = "Inquiry from Career page of website for : " . $subject . " Position";
     $message        = filter_var($_POST["message"], FILTER_SANITIZE_STRING); //capture message
 
     $attachments = $_FILES['resume'];
