@@ -12,9 +12,12 @@ $headers = 'From: ' . $email . "\r\n" .
     'Reply-To: universal.amanaggarwal@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 if (mail($to, $subject, $message, $headers)) {
-  echo"<script language='javascript'>alert('Mail Sent Successfully')</script>";
+  echo"<script language='javascript'>alert('Mail Sent Successfully');
+  window.location.replace('../contact.html');
+  </script>";
 } else {
-  echo"<script language='javascript'>alert('Mail Failed, please try again')</script>";
+  echo"<script language='javascript'>alert('Mail Failed, please try again');
+  window.location.replace('../contact.html');
+  </script>";
 }
-header('location: ../contact.html');
 ?>

@@ -12,10 +12,12 @@ $headers = 'From: ' . $email . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 if (mail($to, $subject, $message, $headers)) {
-    echo"<script language='javascript'>alert('Mail Sent Successfully')</script>";
-    header('location: ../index.html');
+    echo"<script language='javascript'>alert('Mail Sent Successfully');
+    window.location.replace('../index.html');
+    </script>";
 } else {
-    echo"<script language='javascript'>alert('Mail Failed, please try again')</script>";
-    header('location: ../index.html');
+    echo"<script language='javascript'>alert('Mail Failed, please try again');
+    window.location.replace('../index.html');
+    </script>";
 }
 ?>

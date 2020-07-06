@@ -107,11 +107,15 @@ if($_POST){
     $sentMail = mail($recipient_email, $subject, $body, $headers);
     if($sentMail) //output success or failure messages
     {
-        echo"<script language='javascript'>alert('Mail Sent Successfully')</script>";
+        echo"<script language='javascript'>alert('Mail Sent Successfully');
+          window.location.replace('../careers.html');
+        </script>";
     } else {
-        echo"<script language='javascript'>alert('Mail Failed, please try again')</script>";
+        echo"<script language='javascript'>alert('Mail Failed, please try again');
+          window.location.replace('../careers.html');
+        </script>";
     }
-    header('location: ../careers.html');
+
 }
 
  ?>
