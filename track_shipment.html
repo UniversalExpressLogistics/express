@@ -36,19 +36,110 @@
 
       }
 
+      #podButton{
+        text-align: center;
+        border-radius: 20%;
+        border: 2px solid white;
+        padding:0.5rem 1rem 0.5rem 1rem !important;
+        background-color:#CB3233;
+        color: white;
+      }
+
     </style>
 
   <script type="text/javascript">
+        function ObjectLength( object ) {
+          var length = 0;
+          for( var key in object ) {
+              if( object.hasOwnProperty(key) ) {
+                  ++length;
+              }
+          }
+          return length;
+      };
+
+      function deleteRows(){
+          var Parent = document.getElementById("ipText");
+          while(Parent.hasChildNodes())
+          {
+             Parent.removeChild(Parent.firstChild);
+          }
+
+          var Parent = document.getElementById("noData");
+          while(Parent.hasChildNodes())
+          {
+             Parent.removeChild(Parent.firstChild);
+          }
+
+          var Parent = document.getElementById("buttonContainer");
+          while(Parent.hasChildNodes())
+          {
+             Parent.removeChild(Parent.firstChild);
+          }
+      }
       function get_waybill(number){
-        console.log(number)
+        deleteRows()
+        var table = document.getElementById("ipText");
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', "https://ipinfo.io/json", true);
+        url_open = 'http://182.18.145.85:85/API/Tracking/UniLogisticsTracking?GrNo='.concat(number);
+        xhr.open('GET', url_open , true);
         xhr.send();
         xhr.addEventListener("readystatechange", processRequest, false);
         function processRequest(e) {
           if (xhr.readyState == 4 && xhr.status == 200) {
             let response = JSON.parse(xhr.responseText);
-            document.querySelector("#ipText").innerHTML = response.ip;
+            var table_data = response.DataSet;
+            var obj = JSON.parse(table_data)
+            var length = ObjectLength(obj)
+            var header = table.createTHead();
+            length = obj.Table1.length
+            if (length === 0)
+            {
+              document.querySelector("#noData").innerHTML = "No Data present";
+              return;
+            }
+            var row = header.insertRow(0);
+            var table_headings = row.insertCell(0);
+              table_headings.id = "red_headings"
+            table_headings.innerHTML = "DATE";
+            var table_headings = row.insertCell(1);
+            table_headings.innerHTML = "ACTIVITY";
+            table_headings.id = "red_headings"
+            var table_headings = row.insertCell(2);
+            table_headings.innerHTML = "DETAILS";
+            table_headings.id = "red_headings"
+
+            for(i=0;i<length;i++)
+            {
+              // document.querySelector("#ipText").innerHTML = obj.Table1[i].activity;
+                var row = header.insertRow(-1);
+                var cell = row.insertCell(0);
+                cell.innerHTML = obj.Table1[i].date;
+                var cell = row.insertCell(1);
+                cell.innerHTML = obj.Table1[i].activity;
+                var cell = row.insertCell(2);
+                cell.innerHTML = obj.Table1[i].shortactivitydetails;
+            }
+            var pod_url = obj.Table[0].podimage;
+            console.log(pod_url);
+            if (pod_url === null){
+              return
+            }
+            else{
+
+              var container = document.getElementById('buttonContainer');
+              var btn = document.createElement('button');
+              btn.textContent = 'Download POD';
+              btn.id = "podButton"
+
+              // Buttons don't have an href. You need to set up a click event handler
+              btn.addEventListener("click", function(){
+                location = pod_url; // Navigate to new page
+              });
+
+              // Add button to page
+              container.appendChild(btn);
+            }
           }
         }
       }
@@ -152,20 +243,31 @@
         				<div class="col-md-12">
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
-                    <input class="form-control"  id="name"  type="text" name="waybill" placeholder="Enter Waybill number"></input>
+                    <input class="form-control" id="name" type="text" required name="waybill" placeholder="Enter Waybill number" ></input>
                   </div>
                   <div class="col-md-4"></div>
         				</div>
               </div>
             <div class="row">
-                <div class="col-md-12" id="mobile_check"><input  class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" onclick="get_waybill(document.getElementById('name').value)"  value="Check"/></br></div>
+                <div class="col-md-12" id="mobile_check"><input class="btn btn-primary py-3 px-5 text-white" style="border-radius: 20%; border: 2px solid white ; padding:0.5rem 1rem 0.5rem 1rem !important" id="check" onclick="get_waybill(document.getElementById('name').value)"  value="Check"/></br></div>
             </div>
           </div>
         </center>
       </section>
 
       <div class="container" id="waybill_div">
-        <h3 class="text-primary" id  ="ipText"></h3>
+        <div class="row" style="text-align:center; margin: auto">
+          <h3 id="noData" style="text-align:center; color:#CB3233; width: -webkit-fill-available"></h3>
+        </div>
+        <div class="row" style="text-align:center;">
+          <table id="ipText"  scrollable>
+          </table>
+        </br>
+        </br>
+          <div id="buttonContainer" class="container">
+          </div>
+        </div>
+      </br>
       </div>
 
     <footer class="site-footer" style="padding: 2em">
