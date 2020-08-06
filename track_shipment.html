@@ -36,6 +36,7 @@
 
       }
 
+
       #podButton{
         text-align: center;
         border-radius: 20%;
@@ -96,6 +97,7 @@
             if (length === 0)
             {
               document.querySelector("#noData").innerHTML = "No Data present";
+              document.getElementById('greyBorder').style.border= "";
               return;
             }
             var row = header.insertRow(0);
@@ -109,6 +111,7 @@
             table_headings.innerHTML = "DETAILS";
             table_headings.id = "red_headings"
 
+
             for(i=0;i<length;i++)
             {
               // document.querySelector("#ipText").innerHTML = obj.Table1[i].activity;
@@ -118,8 +121,17 @@
                 var cell = row.insertCell(1);
                 cell.innerHTML = obj.Table1[i].activity;
                 var cell = row.insertCell(2);
-                cell.innerHTML = obj.Table1[i].shortactivitydetails;
+                if (i === 0){
+                  var text = obj.Table1[i].shortactivitydetails.concat("</br>").concat(" from ").concat(obj.Table[0].origin).concat(" to ").concat(obj.Table[0].destname);
+                  cell.innerHTML = text;
+                }
+                else {
+                  cell.innerHTML = obj.Table1[i].shortactivitydetails
+                }
             }
+
+            document.getElementById("greyBorder").style.border = "2px #999999 solid";
+
             var pod_url = obj.Table[0].podimage;
             console.log(pod_url);
             if (pod_url === null){
@@ -129,7 +141,7 @@
 
               var container = document.getElementById('buttonContainer');
               var btn = document.createElement('button');
-              btn.textContent = 'Download POD';
+              btn.textContent = 'View POD';
               btn.id = "podButton"
 
               // Buttons don't have an href. You need to set up a click event handler
@@ -259,15 +271,16 @@
         <div class="row" style="text-align:center; margin: auto">
           <h3 id="noData" style="text-align:center; color:#CB3233; width: -webkit-fill-available"></h3>
         </div>
-        <div class="row" style="text-align:center;">
-          <table id="ipText" >
+        <div id="greyBorder" class="row" style="text-align:center; ">
+          <table id="ipText">
           </table>
         </br>
         </br>
-          <div id="buttonContainer" class="container">
-          </div>
         </div>
       </br>
+        <div id="buttonContainer" class="container" style="text-align: center;">
+        </div>
+    </br>
       </div>
 
     <footer class="site-footer" style="padding: 2em">
