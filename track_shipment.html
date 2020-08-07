@@ -81,80 +81,98 @@
       function get_waybill(number){
         deleteRows()
         var table = document.getElementById("ipText");
-        let xhr = new XMLHttpRequest();
-        url_open = 'https://greentrans.in:444/API/Tracking/UniLogisticsTracking?GrNo='.concat(number);
-        xhr.open('GET', url_open , true);
-        xhr.send();
-        xhr.addEventListener("readystatechange", processRequest, false);
-        function processRequest(e) {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText);
-            var table_data = response.DataSet;
-            var obj = JSON.parse(table_data)
-            var length = ObjectLength(obj)
-            var header = table.createTHead();
-            length = obj.Table1.length
-            if (length === 0)
-            {
-              document.querySelector("#noData").innerHTML = "No Data present";
-              document.getElementById('greyBorder').style.border= "";
-              return;
-            }
-            var row = header.insertRow(0);
-            var table_headings = row.insertCell(0);
+        var reg = /[$&+,:;=?@#|'<>.^*()%!-]/;
+        // console.log(number.match(reg))
+        if (number.match(reg) == null){
+
+          let xhr = new XMLHttpRequest();
+          url_open = 'https://greentrans.in:444/API/Tracking/UniLogisticsTracking?GrNo='.concat(number);
+          xhr.open('GET', url_open , true);
+          xhr.send();
+          xhr.addEventListener("readystatechange", processRequest, false);
+          function processRequest(e) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              let response = JSON.parse(xhr.responseText);
+              var table_data = response.DataSet;
+              var obj = JSON.parse(table_data)
+              var length = ObjectLength(obj)
+              var header = table.createTHead();
+              try {
+                length = obj.Table1.length;
+              } catch (e) {
+                document.querySelector("#noData").innerHTML = "Invalid Waybill Number";
+                document.getElementById('greyBorder').style.border= "";
+                return;
+              }
+
+              if (length === 0)
+              {
+                document.querySelector("#noData").innerHTML = "Invalid Waybill Number";
+                document.getElementById('greyBorder').style.border= "";
+                return;
+              }
+              var row = header.insertRow(0);
+              var table_headings = row.insertCell(0);
+                table_headings.id = "red_headings"
+              table_headings.innerHTML = "DATE";
+              var table_headings = row.insertCell(1);
+              table_headings.innerHTML = "ACTIVITY";
               table_headings.id = "red_headings"
-            table_headings.innerHTML = "DATE";
-            var table_headings = row.insertCell(1);
-            table_headings.innerHTML = "ACTIVITY";
-            table_headings.id = "red_headings"
-            var table_headings = row.insertCell(2);
-            table_headings.innerHTML = "DETAILS";
-            table_headings.id = "red_headings"
+              var table_headings = row.insertCell(2);
+              table_headings.innerHTML = "DETAILS";
+              table_headings.id = "red_headings"
 
 
-            for(i=0;i<length;i++)
-            {
-              // document.querySelector("#ipText").innerHTML = obj.Table1[i].activity;
-                var row = header.insertRow(-1);
-                var cell = row.insertCell(0);
-                cell.innerHTML = obj.Table1[i].date;
-                var cell = row.insertCell(1);
-                cell.innerHTML = obj.Table1[i].activity;
-                var cell = row.insertCell(2);
-                if (i === 0){
-                  var text = obj.Table1[i].shortactivitydetails.concat("</br>").concat(" from ").concat(obj.Table[0].origin).concat(" to ").concat(obj.Table[0].destname);
-                  cell.innerHTML = text;
-                }
-                else {
-                  cell.innerHTML = obj.Table1[i].shortactivitydetails
-                }
-            }
+              for(i=0;i<length;i++)
+              {
+                // document.querySelector("#ipText").innerHTML = obj.Table1[i].activity;
+                  var row = header.insertRow(-1);
+                  var cell = row.insertCell(0);
+                  cell.innerHTML = obj.Table1[i].date;
+                  var cell = row.insertCell(1);
+                  cell.innerHTML = obj.Table1[i].activity;
+                  var cell = row.insertCell(2);
+                  if (i === 0){
+                    var text = obj.Table1[i].shortactivitydetails.concat("</br>").concat(" from ").concat(obj.Table[0].origin).concat(" to ").concat(obj.Table[0].destname);
+                    cell.innerHTML = text;
+                  }
+                  else {
+                    cell.innerHTML = obj.Table1[i].shortactivitydetails
+                  }
+              }
 
-            document.getElementById("greyBorder").style.border = "2px #999999 solid";
+              document.getElementById("greyBorder").style.border = "2px #999999 solid";
 
-            var pod_url = obj.Table[0].podimage;
-            console.log(pod_url);
-            if (pod_url === null){
-              return
-            }
-            else{
+              var pod_url = obj.Table[0].podimage;
+              // console.log(pod_url);
+              if (pod_url === null){
+                return
+              }
+              else{
 
-              var container = document.getElementById('buttonContainer');
-              var btn = document.createElement('button');
-              btn.textContent = 'View POD';
-              btn.id = "podButton"
+                var container = document.getElementById('buttonContainer');
+                var btn = document.createElement('button');
+                btn.textContent = 'View POD';
+                btn.id = "podButton";
 
-              // Buttons don't have an href. You need to set up a click event handler
-              btn.addEventListener("click", function(){
-                location = pod_url; // Navigate to new page
-              });
+                // Buttons don't have an href. You need to set up a click event handler
+                btn.addEventListener("click", function(){
+                  // location = pod_url; // Navigate to new page
+                  window.open(pod_url, '_blank');
+                });
 
-              // Add button to page
-              container.appendChild(btn);
+                // Add button to page
+                container.appendChild(btn);
+              }
             }
           }
-        }
       }
+      else{
+        document.querySelector("#noData").innerHTML = "Invalid Waybill Number";
+        document.getElementById('greyBorder').style.border= "";
+        return;
+      }
+    }
   </script>
 
   <script type="text/javascript"
@@ -257,7 +275,7 @@
         				<div class="col-md-12">
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
-                    <input class="form-control" id="name" type="text" name="waybill" placeholder="Enter Waybill number" ></input>
+                    <input class="form-control" id="name"  type="text" name="waybill" placeholder="Enter Waybill number" ></input>
                   </div>
                   <div class="col-md-4"></div>
         				</div>
