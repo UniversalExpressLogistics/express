@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","uni_log","1234","universal_pincodes");
+$con = mysqli_connect("localhost","uni_log","JFq+0^xu?","universal_pincodes");
 if(isset($_POST['name']))
 {
 $name=$_POST['name'];
